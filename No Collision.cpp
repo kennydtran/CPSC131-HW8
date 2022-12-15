@@ -6,16 +6,14 @@ using namespace std;
 
 class hashtable {
 public:
-    vector<forward_list<int> > v;
+    vector<forward_list<int>> v;
 
     int code(unsigned int key) {
         return key;
     }
     size_t h(int code) {
-        int prime_num = 2 ^ 63 - 1;
-        int a = rand() % (prime_num - 1) + 1;
-        int b = rand() % prime_num;
-        int result = ((a * code + b) % prime_num) % v.size();
+        int prime_num = 2^64 - 1;
+        int result = code % prime_num;
         return result;
     }
     size_t hash(int Key) {
